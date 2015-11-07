@@ -22,10 +22,10 @@ $(call inherit-product, device/xiaomi/dior/device.mk)
 # Device identifier. This must come after all inclusions.
 PRODUCT_DEVICE := dior
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := HM NOTE LTE
+PRODUCT_MODEL := dior
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=dior
+    PRODUCT_NAME= HM NOTE LTE
