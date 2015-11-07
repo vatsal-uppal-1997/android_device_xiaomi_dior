@@ -15,4 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/omni_dior.mk \
     $(LOCAL_DIR)/device.mk
