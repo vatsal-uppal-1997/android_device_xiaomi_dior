@@ -16,12 +16,13 @@
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
+$(call inherit-product-if-exists, vendor/xiaomi/dior/dior-vendor.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # ANT+
@@ -196,10 +197,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.armani \
-    init.armani.rc \
-    init.armani.usb.rc \
-    ueventd.armani.rc
+    fstab.dior \
+    init.dior.rc \
+    init.dior.usb.rc \
+    ueventd.dior.rc
 
 # Sensors
 PRODUCT_COPY_FILES += \
