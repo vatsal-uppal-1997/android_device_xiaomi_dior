@@ -404,7 +404,7 @@ on charger
     write /sys/devices/system/cpu/cpu3/online 0
 
 on property:sys.boot_completed=1
-    write /sys/block/mmcblk0/queue/scheduler sio
+    write /sys/block/mmcblk0/queue/scheduler cfq
     # Enable Power modes and set the CPU Freq Sampling rates
     write /sys/module/lpm_levels/enable_low_power/l2 4
     write /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled 1
@@ -447,7 +447,7 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
     start mpdecision
 
-    setprop sys.io.scheduler sio
+    setprop sys.io.scheduler cfq
 
 # CyanogenMod Performance Profiles
 
@@ -468,6 +468,7 @@ on property:sys.perf.profile=0
     write /sys/devices/system/cpu/sched_mc_power_savings 2
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor powersave
     write /sys/class/devfreq/qcom,cpubw.64/governor powersave
+    write /sys/block/mmcblk0/queue/scheduler cfq
     start mpdecision
 
 # Balanced
@@ -487,6 +488,7 @@ on property:sys.perf.profile=1
     write /sys/devices/system/cpu/sched_mc_power_savings 1
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
     write /sys/class/devfreq/qcom,cpubw.64/governor msm_cpufreq
+    write /sys/block/mmcblk0/queue/scheduler cfq
     start mpdecision
 
 # Performance
@@ -506,6 +508,7 @@ on property:sys.perf.profile=2
     write /sys/devices/system/cpu/sched_mc_power_savings 0
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor performance
     write /sys/class/devfreq/qcom,cpubw.64/governor performance
+    write /sys/block/mmcblk0/queue/scheduler sio
     start mpdecision
 
 # Set different perfer network type for different phone type
