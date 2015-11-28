@@ -1,6 +1,7 @@
-# CMHW
-allow system_server vibeamp_sysfs:file rw_file_perms;
+#============= system_server =============
+allow system_server mediaserver:unix_stream_socket write;
+allow system_server time_daemon:unix_stream_socket connectto;
 
-# USB
-allow system_server sysfs_usb_supply:dir search;
-allow system_server sysfs_usb_supply:file { read getattr open };
+#============= cmhw ==============
+allow system_server display_sysfs:file rw_file_perms;
+allow system_server vibeamp_sysfs:file rw_file_perms;

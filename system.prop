@@ -5,12 +5,7 @@ ro.qc.sdk.audio.fluencetype=fluence
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=true
 persist.audio.fluence.speaker=false
-audio.offload.24bit.enable=false
-audio.offload.buffer.size.kb=32
-audio.offload.gapless.enabled=true
-audio.offload.multiple.enabled=false
-audio.offload.video=false
-av.streaming.offload.enable=false
+av.offload.enable=false
 use.voice.path.for.pcm.voip=true
 
 # Display
@@ -37,14 +32,10 @@ rild.libpath=/vendor/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 ril.subscription.types=RUIM
 persist.data.netmgrd.qos.enable=true
-persist.data.qmi.adb_logmask=0
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.dont_use_dsd=true
 persist.radio.msgtunnel.start=false
-persist.radio.multisim.config=dsds
-persist.radio.rat_on=combine
 ro.telephony.call_ring.multiple=false
-ro.telephony.ril.config=simactivation
 
 # OTA
-cm.updater.uri=http://ota.randomdroids.com/api
+#cm.updater.uri=http://ota.randomdroids.com/api

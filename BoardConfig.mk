@@ -27,6 +27,7 @@ TARGET_CPU_VARIANT := krait
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
+AUDIO_FEATURE_ENABLED_FM := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
 # Bluetooth
@@ -57,8 +58,7 @@ TARGET_USERIMAGES_USE_EXT4		:= true
 BOARD_FLASH_BLOCK_SIZE			:= 131072
 
 # FM
-#AUDIO_FEATURE_ENABLED_FM := true
-#TARGET_QCOM_NO_FM_FIRMWARE := true
+BOARD_HAVE_QCOM_FM := true
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -71,7 +71,7 @@ TARGET_PROVIDES_GPS_LOC_API := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
-HAVE_ADRENO_SOURCE:= false		
+HAVE_ADRENO_SOURCE:= false
 TARGET_USES_POST_PROCESSING := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
@@ -87,16 +87,16 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Hardware tunables
-BOARD_HARDWARE_CLASS := device/xiaomi/dior/cmhw/
+BOARD_HARDWARE_CLASS := device/xiaomi/dior/cmhw
 
 # Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/xiaomi/dior/init/init_dior.cpp
+TARGET_LIBINIT_DEFINES_FILE := device/xiaomi/dior/init/init_dior.c
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/xiaomi/dior
-TARGET_KERNEL_CONFIG := cyanogenmod_dior_defconfig
+TARGET_KERNEL_CONFIG := dior_cyanogenmod_defconfig
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=dior user_debug=31 msm_rtb.filter=0x37
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -117,16 +117,12 @@ MALLOC_IMPL := dlmalloc
 # Platform
 TARGET_BOARD_PLATFORM := msm8226
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
-USE_CLANG_PLATFORM_BUILD := true
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
-
-# Radio
-TARGET_RIL_VARIANT := caf
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/xiaomi/dior/rootdir/etc/fstab.dior

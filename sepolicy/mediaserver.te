@@ -1,2 +1,2 @@
-allow mediaserver socket_device:sock_file write;
-allow mediaserver system_file:file execmod;
+#============= mediaserver ==============
+allow mediaserver system_server:unix_stream_socket { read write };
