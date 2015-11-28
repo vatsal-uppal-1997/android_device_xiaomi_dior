@@ -126,7 +126,8 @@ TARGET_POWERHAL_VARIANT := qcom
 BOARD_USES_QCOM_HARDWARE := true
 
 # Radio
-TARGET_RIL_VARIANT := caf
+###### disable this from now as this came from armani ######
+# TARGET_RIL_VARIANT := caf
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/xiaomi/dior/rootdir/etc/fstab.dior

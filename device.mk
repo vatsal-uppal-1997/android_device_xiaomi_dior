@@ -74,7 +74,9 @@ PRODUCT_PACKAGES += \
 
 # Charger
 PRODUCT_PACKAGES += \
-    charger_res_images
+    charger_res_images \
+    liboverlay \
+    libemoji
 
 # Connectivity
 PRODUCT_PACKAGES += \
@@ -104,11 +106,17 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # FM
-#PRODUCT_PACKAGES += \
-#    FM2 \
-#    FMRecord \
-#    libqcomfm_jni \
-#    qcom.fmradio
+PRODUCT_PACKAGES += \
+    FM2 \
+    FMRecord \
+    libqcomfm_jni \
+    qcom.fmradio \
+    qcom.fmradio.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    hw.fm.internal_antenna=false
+
+
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -116,6 +124,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     gps.conf \
+    flp.conf \
+    izat.conf \
+    quipc.conf \
     sap.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -149,6 +160,8 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libdivxdrmdecrypt \
     libdashplayer \
     libmm-omxcore \
     libOmxAacEnc \
@@ -156,7 +169,7 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
-    libOmxVdec \
+    libOmxVdecHevc \
     libOmxVenc \
     libstagefrighthw \
     qcmediaplayer
@@ -200,6 +213,7 @@ PRODUCT_PACKAGES += \
     fstab.dior \
     init.dior.rc \
     init.dior.usb.rc \
+    init.qcom.fm.sh \
     ueventd.dior.rc
 
 # Sensors
@@ -211,17 +225,26 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
 
 # USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.isUsbOtgEnabled=1
+
 
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf \
-    WCNSS_cfg.dat \
-    WCNSS_qcom_cfg.ini \
-    WCNSS_qcom_wlan_nv.bin
+    WCNSS_qcom_wlan_nv.bin \
+    WCNSS_qcom_wlan_nv_h3gbl.bin \
+    WCNSS_qcom_wlan_nv_h3td.bin \
+    WCNSS_qcom_wlan_nv_h3w.bin
+
+PRODUCT_COPY_FILES += \
+    kernel/xiaomi/dior/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    kernel/xiaomi/dior/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
@@ -238,6 +261,5 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
-    ro.disableWifiApFirmwareReload=true \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0
