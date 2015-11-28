@@ -124,9 +124,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     gps.conf \
-    flp.conf \
-    izat.conf \
-    quipc.conf \
     sap.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
